@@ -7,6 +7,11 @@ from sqlalchemy.orm import sessionmaker, Session
 import uvicorn
 import uuid
 
+#next steps:
+#postgre
+#make a frontend
+
+
 # FastAPI app setup
 app = FastAPI()
 
