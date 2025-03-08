@@ -1,5 +1,5 @@
 [project]
-name = "carswiper-pkg"
+name = "carswiper"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-carswiper-pkg = "carswiper_pkg:main"
+carswiper = "carswiper:main"
 
 [build-system]
 requires = ["hatchling"]
