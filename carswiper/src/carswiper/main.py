@@ -11,12 +11,12 @@ models.Base.metadata.create_all(bind=engine)
 
 #Defining Models for APIs
 class UserCreate(BaseModel):
-    username: String
-    password: String
+    username: str
+    password: str
 
 class UserLogin(BaseModel):
-    username: String
-    password: String
+    username: str
+    password: str
 
 def get_db():
     db = SessionLocal()
