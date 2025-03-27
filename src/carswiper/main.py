@@ -1,22 +1,26 @@
-from fastapi import FastAPI, HTTPException, Depends
+from typing import Annotated
+
+from fastapi import Depends, FastAPI
 from pydantic import BaseModel
-from typing import List, Annotated
-import models
-from database import engine, SessionLocal
 from sqlalchemy.orm import Session
 
+from carswiper import models
+from carswiper.database import SessionLocal, engine
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
 
-#Defining Models for APIs
+
+# Defining Models for APIs
 class UserCreate(BaseModel):
     username: str
     password: str
 
+
 class UserLogin(BaseModel):
     username: str
     password: str
+
 
 def get_db():
     db = SessionLocal()
@@ -24,5 +28,6 @@ def get_db():
         yield db
     finally:
         db.close()
+
 
 db_dependency = Annotated[Session, Depends(get_db)]
