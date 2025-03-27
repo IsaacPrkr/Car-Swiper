@@ -1,5 +1,7 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
-from database import Base
+from sqlalchemy import Column, Integer, String
+
+from carswiper.models import Base
+
 
 class Users(Base):
     __tablename__ = "users"
