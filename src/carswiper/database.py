@@ -2,10 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-URL_DATABASE = 'postgresql://postgres:@localhost:5432/CarSwiper'
+URL_DATABASE = 'postgresql://postgres:NaoYu123@localhost:5432/CarSwiper'
 
 engine = create_engine(URL_DATABASE)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base
+Base = declarative_base()
