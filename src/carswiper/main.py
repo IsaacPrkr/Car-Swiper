@@ -16,7 +16,6 @@ class UserCreate(BaseModel):
     username: str
     password: str
 
-
 class UserLogin(BaseModel):
     username: str
     password: str
@@ -31,3 +30,4 @@ def get_db():
 
 
 db_dependency = Annotated[Session, Depends(get_db)]
+

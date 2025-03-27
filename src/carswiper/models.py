@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, String
 
-from carswiper.models import Base
+from carswiper.database import Base
 
 
-class Users(Base):
-    __tablename__ = "users"
+class User(Base):
+    __tablename__ = "user"
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, index=True, unique=True)
     password = Column(String, index=True)
