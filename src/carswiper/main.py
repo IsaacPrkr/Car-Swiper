@@ -14,7 +14,7 @@ models.Base.metadata.create_all(bind=engine)
 # Defining Models for APIs
 class UserCreate(BaseModel):
     username: str
-    email: str
+    email: EmailStr
     password: str
 
 class UserLogin(BaseModel):
