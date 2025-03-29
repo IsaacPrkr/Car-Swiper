@@ -31,3 +31,5 @@ def get_db():
 
 
 db_dependency = Annotated[Session, Depends(get_db)]
+
+#Uv run python src/carswiper/main.py
