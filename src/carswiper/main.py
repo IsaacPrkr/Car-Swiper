@@ -4,7 +4,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
-from carswiper import models, schemas
+from carswiper import models
 from carswiper.database import SessionLocal, engine
 
 from passlib.context import CryptContext
@@ -39,7 +39,7 @@ def get_db():
 db_dependency = Annotated[Session, Depends(get_db)]
 
 @app.post("/register")
-def register_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.email == user.email).first()
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
