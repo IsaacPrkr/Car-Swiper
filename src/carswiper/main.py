@@ -51,3 +51,4 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return {"username": db_user.username, "email": db_user.email}
 
 #Uv run python src/carswiper/main.py
+#uvicorn main:app
