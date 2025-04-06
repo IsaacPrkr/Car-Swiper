@@ -38,6 +38,8 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
+
+#endpoint for registering
 @app.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.email == user.email).first()
@@ -49,6 +51,8 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_user)
     return {"username": db_user.username, "email": db_user.email}
+
+
 
 #Uv run python src/carswiper/main.py
 #uvicorn main:app
