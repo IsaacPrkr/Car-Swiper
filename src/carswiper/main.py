@@ -17,6 +17,10 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def password_hash(password):
     return pwd_context.hash(password)
 
+def veryify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+
 # Defining Models for APIs
 class UserCreate(BaseModel):
     username: str
@@ -35,6 +39,11 @@ def get_db():
     finally:
         db.close()
 
+def authenticate_user(email: str, password: str, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.email == email).first()
+    if not user or not veryify_password(password, user.hashed_password):
+        return False
+    return user
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
