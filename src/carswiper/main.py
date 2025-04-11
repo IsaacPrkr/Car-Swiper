@@ -63,8 +63,25 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
 
 #endpoint for login
 @app.post("/login")
-def login_user():
-    return
+def login_user(user: UserLogin, db: Session = Depends(get_db)):
+    # Query the database for the user by username
+    db_user = db.query(models.User).filter(models.User.username == user.username).first()
+    if not db_user:
+        raise HTTPException(status_code=400, detail="Invalid username or password")
+    
+    # Verify the provided password
+    if not veryify_password(user.password, db_user.hashed_password):
+        raise HTTPException(status_code=400, detail="Invalid username or password")
+    
+    # Return a success message
+    return {"message": "Login successful", "username": db_user.username}
 
 #Uv run python src/carswiper/main.py
 #uvicorn main:app
+
+
+
+#Test account for logging in :)
+#  "username": "IsaacPrkr",
+#  "email": "IsaacPrkr333@carswiper.com",
+#  "password": "555lolol555"
