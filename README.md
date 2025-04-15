@@ -1,3 +1,4 @@
+<h1 align="center">Car-Swiper</h1>
 <h3 align="center">A web application for car enthusiasts...</h3>
 
 <h3 align="left">Connect with me:</h3>
