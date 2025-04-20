@@ -24,13 +24,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Register Page Designs */
-
-.register-page{
-  @apply bg-indigo-700 inset-shadow-sm inset-shadow-indigo-500;
-}
-
-.register-logo{
-  @apply w-50 h-50 mr-2
-}
