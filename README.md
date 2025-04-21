@@ -1,6 +1,7 @@
 <h1 align="center">Car-Swiper</h1>
 <h3 align="center">A web application for car enthusiasts...</h3>
 
+![logomedium](https://github.com/user-attachments/assets/c6d2e4fa-f8d2-49fd-ba88-ff149318a078)
 
 <p align="left">
 </p>
