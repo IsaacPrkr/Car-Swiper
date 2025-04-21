@@ -19,7 +19,7 @@
   }
   
   .register-heading {
-    @apply text-2xl text-center text-wrap leading-tight tracking-wide underline decoration-indigo-200 text-gray-900 md:text-2xl dark:text-white font-semibold;
+    @apply text-2xl text-center text-wrap leading-tight tracking-wide  decoration-indigo-200 text-gray-900 md:text-2xl dark:text-white font-semibold;
   }
   
   .register-label {
