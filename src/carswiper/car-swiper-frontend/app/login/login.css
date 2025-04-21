@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Login Designs CSS */
+
+.login-page {
+    @apply bg-indigo-700 inset-shadow-sm inset-shadow-indigo-500;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
