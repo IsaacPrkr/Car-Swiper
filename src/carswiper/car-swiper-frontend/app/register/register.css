@@ -7,7 +7,7 @@
   }
   
   .register-logo{
-    @apply mx-3 w-75 h-75 mr-2
+    @apply mx-3 w-75 h-75 mr-2;
   }
   
   .register-container {
