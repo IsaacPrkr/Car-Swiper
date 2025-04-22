@@ -5,41 +5,62 @@
 /* Login Designs CSS */
 
 .login-page {
-    @apply bg-indigo-700 inset-shadow-sm inset-shadow-indigo-500;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.login-logo{
-  @apply mx-3 w-70 h-70 mr-2;
+  @apply min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-800 to-indigo-600;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .login-container {
-  @apply w-full bg-white rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700;
+  @apply border outline-2 outline-indigo-950 bg-white border-slate-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto;
 }
 
 .login-content {
-  @apply bg-auto outline-3 outline-offset-1 outline-solid outline-black rounded-2xl p-6 space-y-4 md:space-y-6 sm:p-8;
+  @apply space-y-6;
 }
 
 .login-heading {
-  @apply text-2xl text-center text-wrap leading-tight tracking-wide  decoration-indigo-200 text-gray-900 md:text-2xl dark:text-white font-semibold;
+  @apply text-slate-900 text-3xl font-semibold;
+}
+
+.login-description {
+  @apply text-slate-500 text-lg mt-6 leading-relaxed;
 }
 
 .login-label {
-  @apply text-lg block mb-2 font-medium text-gray-900 dark:text-white;
+  @apply text-slate-800 text-sm font-medium mb-2 block;
 }
 
 .login-input {
-  @apply outline-2 outline-black bg-gray-600 w-full p-2.5 block rounded-lg text-sm;
+  @apply w-full text-sm text-slate-800 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600;
+}
+
+.login-input-icon {
+  @apply w-[18px] h-[18px] absolute right-4 cursor-pointer;
 }
 
 .login-button {
-  @apply text-white transition ease-in-out hover:-translate-y-1 duration-300 outline-2 outline-black hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-semibold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-indigo-600 dark:hover:bg-gray-700 dark:focus:ring-indigo-800;
+  @apply w-full shadow-xl py-2.5 px-4 text-[15px] font-semibold tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none bg-gradient-to-r from-indigo-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 text-sm text-center me-2 mb-2 outline-2 outline-blue-500;
 }
 
-.login-confirmation {
-  @apply text-base font-semibold text-blue-500 dark:text-green-400;
+.login-image {
+  @apply w-full aspect-[71/71] max-md:w-4/5 mx-auto block object-cover;
 }
+
+.login-image:hover {
+  @apply scale-96;
+}
+
+.login-message {
+  @apply text-sm font-semibold mt-4 text-center;
+}
+
+.login-message.text-red-500 {
+  @apply text-red-500;
+}
+
+.login-message.text-green-500 {
+  @apply text-indigo-500;
+}
+
 
 
 @keyframes fadeIn {
