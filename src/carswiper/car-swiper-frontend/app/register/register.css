@@ -1,48 +1,57 @@
 @import "tailwindcss";
 
-/* Registration Page CSS */
-.register-page{
-    @apply bg-indigo-700 inset-shadow-sm inset-shadow-indigo-500;
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  .register-logo{
-    @apply mx-3 w-75 h-75 mr-2;
-  }
-  
-  .register-container {
-    @apply w-full bg-white rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700;
-  }
-  
-  .register-content {
-    @apply bg-auto outline-3 outline-offset-1 outline-solid outline-black rounded-2xl p-6 space-y-4 md:space-y-6 sm:p-8;
-  }
-  
-  .register-heading {
-    @apply text-2xl text-center text-wrap leading-tight tracking-wide  decoration-indigo-200 text-gray-900 md:text-2xl dark:text-white font-semibold;
-  }
-  
-  .register-label {
-    @apply text-lg block mb-2 font-medium text-gray-900 dark:text-white;
-  }
+/* Register Page CSS */
 
-  .register-input {
-    @apply outline-2 outline-black bg-gray-600 w-full p-2.5 block rounded-lg text-sm;
-  }
+.register-page {
+  @apply min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-800 to-indigo-600;
+  animation: fadeIn 1s ease-in-out;
+}
 
-  .register-button {
-    @apply text-white mx-27 transition ease-in-out hover:-translate-y-1 duration-300 outline-2 outline-black hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-semibold rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-indigo-600 dark:hover:bg-gray-700 dark:focus:ring-indigo-800;
-  }
+.register-container {
+  @apply border outline-2 outline-indigo-950 bg-white border-slate-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto;
+}
 
-  .register-confirmation {
-    @apply text-base font-semibold text-blue-500 dark:text-green-400;
-  }
+.register-content {
+  @apply space-y-6;
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+.register-heading {
+  @apply text-slate-900 text-3xl font-semibold;
+}
+
+.register-description {
+  @apply text-slate-500 text-lg mt-6 leading-relaxed;
+}
+
+.register-label {
+  @apply text-slate-800 text-sm font-medium mb-2 block;
+}
+
+.register-input {
+  @apply w-full text-sm text-slate-800 border border-slate-300 pl-4 pr-10 py-3 rounded-lg outline-blue-600;
+}
+
+.register-button {
+  @apply w-full shadow-xl py-2.5 px-4 text-[15px] font-semibold tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none bg-gradient-to-r from-indigo-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 text-sm text-center me-2 mb-2 outline-2 outline-blue-500;
+}
+
+.register-confirmation {
+  @apply text-sm font-semibold mt-4 text-center;
+}
+
+.register-confirmation.text-red-500 {
+  @apply text-red-500;
+}
+
+.register-confirmation.text-green-500 {
+  @apply text-indigo-500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
