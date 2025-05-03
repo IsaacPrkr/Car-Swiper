@@ -1,3 +1,17 @@
 @import "tailwindcss";
 
 /* Initial Page CSS */
+
+.initial-page {
+    @apply min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-800 to-indigo-600;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
