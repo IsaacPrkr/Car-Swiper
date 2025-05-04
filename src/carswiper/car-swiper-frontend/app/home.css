@@ -1,17 +1,41 @@
 @import "tailwindcss";
 
-/* Initial Page CSS */
+/* Home Page CSS */
 
-.initial-page {
-    @apply min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-800 to-indigo-600;
-    animation: fadeIn 1s ease-in-out;
+.home-page {
+  @apply min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-800 to-indigo-600;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.home-container {
+  @apply border outline-2 outline-indigo-950 bg-white border-slate-300 rounded-lg p-6 max-w-md shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto;
+}
+
+.home-content {
+  @apply space-y-6;
+}
+
+.home-heading {
+  @apply text-slate-900 text-3xl font-semibold;
+}
+
+.home-description {
+  @apply text-slate-500 text-lg mt-6 leading-relaxed;
+}
+
+.home-button {
+  @apply w-full shadow-xl py-2.5 px-4 text-[15px] font-semibold tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none bg-gradient-to-r from-indigo-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800;
+}
+
+.home-image {
+  @apply w-full aspect-[71/71] max-md:w-3/5 mx-auto block object-cover;
 }
 
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
