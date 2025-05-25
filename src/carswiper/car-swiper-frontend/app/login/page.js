@@ -56,7 +56,7 @@ export default function Login() {
                     type="text"
                     required
                     className="login-input"
-                    placeholder="Enter user name"
+                    placeholder="Enter username"
                     onChange={handleChange}
                   />
                   <svg
