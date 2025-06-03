@@ -21,6 +21,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# next steps #
+# implement main dashboard
+
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def password_hash(password):
