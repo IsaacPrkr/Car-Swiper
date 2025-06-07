@@ -11,7 +11,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
 
-class Car(Base):
-    __tablename__ = "cars"
+#class Car(Base):
+#    __tablename__ = "cars"
 
     
