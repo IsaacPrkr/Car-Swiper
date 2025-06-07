@@ -107,7 +107,6 @@ dependencies = [
     { name = "python-jose", extra = ["cryptography"] },
     { name = "python-multipart" },
     { name = "sqlalchemy" },
-    { name = "tailwindcss" },
     { name = "uvicorn" },
 ]
 
@@ -128,7 +127,6 @@ requires-dist = [
     { name = "python-jose", extras = ["cryptography"], specifier = ">=3.4.0" },
     { name = "python-multipart", specifier = ">=0.0.20" },
     { name = "sqlalchemy", specifier = ">=2.0.39" },
-    { name = "tailwindcss", specifier = ">=0.0.1" },
     { name = "uvicorn", specifier = ">=0.34.0" },
 ]
 
@@ -1058,12 +1056,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/28/3f/13cacea96900bbd31
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f7/45/8c4ebc0c460e6ec38e62ab245ad3c7fc10b210116cea7c16d61602aa9558/stevedore-5.4.1-py3-none-any.whl", hash = "sha256:d10a31c7b86cba16c1f6e8d15416955fc797052351a56af15e608ad20811fcfe", size = 49533 },
 ]
-
-[[package]]
-name = "tailwindcss"
-version = "0.0.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a0/f3/aa3b4800e559cd863bb09e3840c52de999e37c68edec5e42e97b510b7331/tailwindcss-0.0.1.tar.gz", hash = "sha256:2ba71105662701a522a13367844f7f5e8830456da69f30048291440431f8875b", size = 3025 }
 
 [[package]]
 name = "typer"
