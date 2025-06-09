@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 from carswiper.database import Base
 
@@ -11,7 +11,13 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
 
-#class Car(Base):
-#    __tablename__ = "cars"
-
+class Car(Base):
+    __tablename__ = "cars"
+    id = Column(Integer, primary_key=True, index=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
+    make = Column(String)
+    model = Column(String)
+    year = Column(Integer)
+    image_url = Column(String)
+    description = Column(String)
     
