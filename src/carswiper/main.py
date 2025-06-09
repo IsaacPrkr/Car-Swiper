@@ -91,6 +91,11 @@ def login_user(user: UserLogin, db: Session = Depends(get_db)):
     # Return a success message
     return {"message": "Login successful", "username": db_user.username}
 
+
+
+
+
+
 #Uv run python src/carswiper/main.py
 #uvicorn main:app
 
