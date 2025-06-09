@@ -20,4 +20,10 @@ class Car(Base):
     year = Column(Integer)
     image_url = Column(String)
     description = Column(String)
-    
+
+class Swipe(Base):
+    __tablename__ = "swipes"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    car_id = Column(Integer, ForeignKey("cars.id"))
+    liked = Column(Boolean) # True for right swipe, False for left
