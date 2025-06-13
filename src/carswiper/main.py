@@ -56,7 +56,9 @@ class CarOut(BaseModel):
     class config:
         orm_mode = True
 
-
+class SwipeIn(BaseModel):
+    car_id: int
+    liked: bool
 
 
 def get_db():
