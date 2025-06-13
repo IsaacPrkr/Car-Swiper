@@ -45,6 +45,18 @@ class UserLogin(BaseModel):
     username: str
     password: str
 
+class CarOut(BaseModel):
+    id: int
+    make: str
+    model: str
+    year: int
+    image_url: str
+    description: str
+
+    class config:
+        orm_mode = True
+
+
 
 
 def get_db():
@@ -59,6 +71,7 @@ def authenticate_user(email: str, password: str, db: Session = Depends(get_db)):
     if not user or not veryify_password(password, user.hashed_password):
         return False
     return user
+
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
