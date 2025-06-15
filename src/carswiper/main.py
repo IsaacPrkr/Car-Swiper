@@ -53,6 +53,7 @@ class CarOut(BaseModel):
     image_url: str
     description: str
 
+
     class config:
         orm_mode = True
 
