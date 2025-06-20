@@ -78,6 +78,11 @@ def authenticate_user(email: str, password: str, db: Session = Depends(get_db)):
 db_dependency = Annotated[Session, Depends(get_db)]
 
 
+@app.get("/cars/swipeable", response_model=list[CarOut])
+def get_swipeable_cars(db: Session = Depends(get_db)):
+    pass
+
+
 #endpoint for registering
 @app.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
