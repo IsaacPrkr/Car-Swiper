@@ -79,9 +79,9 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 
 @app.get("/cars/swipeable", response_model=list[CarOut])
-def get_swipeable_cars(db: Session = Depends(get_db)):
-    pass
-
+def get_swipeable_cars(db: Session = Depends(get_db), username: str = ""):
+    # for now username is passed as a query parameter for demo;
+    user = db.query
 
 #endpoint for registering
 @app.post("/register")
