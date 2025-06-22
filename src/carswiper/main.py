@@ -77,11 +77,35 @@ def authenticate_user(email: str, password: str, db: Session = Depends(get_db)):
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
-
+# Route to get a list of swipeable cars for a user
 @app.get("/cars/swipeable", response_model=list[CarOut])
 def get_swipeable_cars(db: Session = Depends(get_db), username: str = ""):
+
     # for now username is passed as a query parameter for demo;
-    user = db.query
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found...")
+    
+    #cars not owned by user and not already swiped on
+    swiped_car_ids = db.query(models.Swipe.car_id).filter(models.Swipe.user_id == user.id)
+    cars = db.query(models.Car).filter(
+        models.Car.owner_id != user.id,
+        ~models.Car.id.in_(swiped_car_ids)
+    ).all()
+    return cars
+
+# Route to record a swipe (like or dislike) on a car
+@app.post("/cars/swipe")
+def swipe_car(swipe: SwipeIn, db: Session = Depends(get_db), username: str = ""):
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    # Record the swipe
+    db_swipe = models.Swipe(user_id=user.id, car_id=swipe.car_id, liked=swipe.liked)
+    db.add(db_swipe)
+    db.commit()
+    return {"message": "Swipe recorded"}
+
 
 #endpoint for registering
 @app.post("/register")
