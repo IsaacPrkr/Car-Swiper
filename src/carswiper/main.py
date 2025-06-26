@@ -127,6 +127,10 @@ def add_car(car: carCreate, db: Session = Depends(get_db), username: str = ""):
         image_url=car.image_url,
         description=car.description,
     )
+    db.add(db_car)
+    db.commit()
+    db.refresh(db_car)
+    return db_car
 
 #endpoint for registering
 @app.post("/register")
