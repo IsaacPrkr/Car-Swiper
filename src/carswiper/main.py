@@ -60,6 +60,13 @@ class SwipeIn(BaseModel):
     car_id: int
     liked: bool
 
+class carCreate(BaseModel):
+    make: str
+    model: str
+    year: int
+    image_url: str
+    description: str
+
 
 def get_db():
     db = SessionLocal()
@@ -106,6 +113,20 @@ def swipe_car(swipe: SwipeIn, db: Session = Depends(get_db), username: str = "")
     db.commit()
     return {"message": "Swipe recorded"}
 
+#endpoint for adding a car (testing)
+@app.post("/cars/add")
+def add_car(car: carCreate, db: Session = Depends(get_db), username: str = ""):
+    user = db.query(models.User).filter(models.User.username == username).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    db_car = models.Car(
+        owner_id=user.id,
+        make=car.make,
+        model=car.model,
+        year=car.year,
+        image_url=car.image_url,
+        description=car.description,
+    )
 
 #endpoint for registering
 @app.post("/register")
