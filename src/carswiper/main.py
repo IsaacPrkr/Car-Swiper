@@ -113,7 +113,7 @@ def swipe_car(swipe: SwipeIn, db: Session = Depends(get_db), username: str = "")
     db.commit()
     return {"message": "Swipe recorded"}
 
-#endpoint for adding a car (testing)
+#endpoint for adding a car (testing) using postman to enter sample data for cars :)
 @app.post("/cars/add")
 def add_car(car: carCreate, db: Session = Depends(get_db), username: str = ""):
     user = db.query(models.User).filter(models.User.username == username).first()
