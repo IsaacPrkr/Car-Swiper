@@ -12,6 +12,7 @@ Discover unique and interesting cars from around the world.
 Showcase their own vehicles and receive feedback from other car lovers.
 Match with users who have mutual interests, opening the door to new friendships, car meets, and collaborations.
 Build a personal network of like-minded individuals, potentially leading to real-world connections and events.
+
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
