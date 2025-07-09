@@ -1,10 +1,10 @@
+import os
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-URL_DATABASE = 'postgresql://postgres:@localhost:5432/CarSwiper'
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:@localhost:5432/CarSwiper")
 
-engine = create_engine(URL_DATABASE)
+engine = create_engine(DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
