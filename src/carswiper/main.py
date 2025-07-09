@@ -101,6 +101,7 @@ def get_swipeable_cars(db: Session = Depends(get_db), username: str = ""):
     ).all()
     return cars
 
+
 # Route to record a swipe (like or dislike) on a car
 @app.post("/cars/swipe")
 def swipe_car(swipe: SwipeIn, db: Session = Depends(get_db), username: str = ""):
