@@ -23,7 +23,7 @@ app.add_middleware(
 
 
 # next steps #
-# implement main dashboard
+# swiping effect
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
