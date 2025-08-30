@@ -1,15 +1,56 @@
-
+@import "tailwindcss";
 
 /* Custom animations and effects */
 
 /* Custom background */
 .dashboard-background {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
+.loading-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-cars-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-box {
+  text-align: center;
+}
+
+.message-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.message-text {
+  color: #d1d5db;
+}
 
 .car-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 24rem;
+  width: 100%;
+  overflow: hidden;
   animation: slideIn 0.3s ease-out;
   transition: transform 0.2s ease;
 }
@@ -18,7 +59,15 @@
   transform: translateY(-2px);
 }
 
+.image-container {
+  position: relative;
+  height: 24rem;
+}
+
 .car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -26,17 +75,80 @@
   transform: scale(1.05);
 }
 
+.car-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+  padding: 1rem;
+}
+
+.car-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.car-year {
+  color: white;
+  font-size: 1.125rem;
+}
+
+.car-content {
+  padding: 1rem;
+}
+
+.car-description {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .pass-button {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
   box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
+.pass-button:hover {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+}
+
 .like-button {
+  background-color: #22c55e;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
   box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
 }
 
-.pass-button:hover,
 .like-button:hover {
+  background-color: #16a34a;
   transform: translateY(-1px);
+}
+
+.counter {
+  margin-top: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 @keyframes slideIn {
@@ -48,9 +160,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.counter {
-  font-weight: 500;
-  letter-spacing: 0.5px;
 }

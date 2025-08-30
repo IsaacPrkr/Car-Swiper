@@ -6,10 +6,9 @@ import './dashboard.css';
 export default function Dashboard() {
   const [cars, setCars] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [username, setUsername] = useState(""); // Start empty
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
-    // Get username from localStorage when component loads
     const storedUsername = localStorage.getItem('username');
     if (storedUsername) {
       setUsername(storedUsername);
@@ -17,11 +16,10 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    // Only fetch cars when we have a username
     if (username) {
       fetchCars();
     }
-  }, [username]); // Trigger when username changes
+  }, [username]);
 
   const fetchCars = async () => {
     try {
@@ -49,13 +47,12 @@ export default function Dashboard() {
     }
   };
 
-  // Show loading if no username yet
   if (!username) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Loading...</h1>
-          <p className="text-gray-600">Please log in first.</p>
+      <div className="loading-container">
+        <div className="message-box">
+          <h1 className="message-title">Loading...</h1>
+          <p className="message-text">Please log in first.</p>
         </div>
       </div>
     );
@@ -65,10 +62,10 @@ export default function Dashboard() {
 
   if (cars.length === 0) {
     return (
-      <div className="min-h-screen bg-indigo-500 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">No more cars to swipe!</h1>
-          <p className="text-gray-600">Check back later for new cars.</p>
+      <div className="no-cars-container">
+        <div className="message-box">
+          <h1 className="message-title">No more cars to swipe!</h1>
+          <p className="message-text">Check back later for new cars.</p>
         </div>
       </div>
     );
@@ -76,45 +73,45 @@ export default function Dashboard() {
 
   if (!currentCar) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">All done!</h1>
-          <p className="text-gray-600">You've swiped through all available cars.</p>
+      <div className="no-cars-container">
+        <div className="message-box">
+          <h1 className="message-title">All done!</h1>
+          <p className="message-text">You've swiped through all available cars.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full overflow-hidden car-card">
-        <div className="relative h-96 image-container">
+    <div className="dashboard-background">
+      <div className="car-card">
+        <div className="image-container">
           <img 
             src={currentCar.image_url} 
             alt={`${currentCar.make} ${currentCar.model}`}
-            className="w-full h-full object-cover car-image"
+            className="car-image"
           />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 car-info">
-            <h2 className="text-white text-2xl font-bold car-title">
+          <div className="car-info">
+            <h2 className="car-title">
               {currentCar.make} {currentCar.model}
             </h2>
-            <p className="text-white text-lg car-year">{currentCar.year}</p>
+            <p className="car-year">{currentCar.year}</p>
           </div>
         </div>
         
-        <div className="p-4 car-content">
-          <p className="text-gray-600 mb-4 car-description">{currentCar.description}</p>
+        <div className="car-content">
+          <p className="car-description">{currentCar.description}</p>
           
-          <div className="flex justify-center space-x-4 button-container">
+          <div className="button-container">
             <button
               onClick={() => handleSwipe(false)}
-              className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full font-semibold transition-colors pass-button"
+              className="pass-button"
             >
               Pass ✕
             </button>
             <button
               onClick={() => handleSwipe(true)}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-colors like-button"
+              className="like-button"
             >
               Like ♥
             </button>
@@ -122,7 +119,7 @@ export default function Dashboard() {
         </div>
       </div>
       
-      <div className="mt-4 text-gray-500 counter">
+      <div className="counter">
         {currentIndex + 1} / {cars.length}
       </div>
     </div>
