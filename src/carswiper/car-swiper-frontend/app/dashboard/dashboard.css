@@ -1,0 +1,46 @@
+/* Custom animations and effects */
+.car-card {
+  animation: slideIn 0.3s ease-out;
+  transition: transform 0.2s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-2px);
+}
+
+.car-image {
+  transition: transform 0.3s ease;
+}
+
+.car-card:hover .car-image {
+  transform: scale(1.05);
+}
+
+.pass-button {
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.like-button {
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.pass-button:hover,
+.like-button:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.counter {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
