@@ -19,6 +19,9 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await axios.post("http://127.0.0.1:8000/login", formData);
+
+      localStorage.setItem('username', formData.username);
+
       setMessage("Login successful! Redirecting...");
       setIsError(false); // Success message
       setTimeout(() => {

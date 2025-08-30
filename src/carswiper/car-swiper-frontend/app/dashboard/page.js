@@ -1,16 +1,27 @@
 "use client";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './dashboard.css'; // Add this import
+import './dashboard.css';
 
 export default function Dashboard() {
   const [cars, setCars] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [username, setUsername] = useState("IsaacPrkr"); // Replace with actual user
+  const [username, setUsername] = useState(""); // Start empty
 
   useEffect(() => {
-    fetchCars();
+    // Get username from localStorage when component loads
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
   }, []);
+
+  useEffect(() => {
+    // Only fetch cars when we have a username
+    if (username) {
+      fetchCars();
+    }
+  }, [username]); // Trigger when username changes
 
   const fetchCars = async () => {
     try {
@@ -38,11 +49,23 @@ export default function Dashboard() {
     }
   };
 
+  // Show loading if no username yet
+  if (!username) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Loading...</h1>
+          <p className="text-gray-600">Please log in first.</p>
+        </div>
+      </div>
+    );
+  }
+
   const currentCar = cars[currentIndex];
 
   if (cars.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-indigo-500 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">No more cars to swipe!</h1>
           <p className="text-gray-600">Check back later for new cars.</p>

@@ -1,4 +1,14 @@
+
+
 /* Custom animations and effects */
+
+/* Custom background */
+.dashboard-background {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+}
+
+
 .car-card {
   animation: slideIn 0.3s ease-out;
   transition: transform 0.2s ease;
