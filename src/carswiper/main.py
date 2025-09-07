@@ -24,6 +24,7 @@ app.add_middleware(
 
 # next steps #
 # swiping effect for frontend
+# swiping done but with no animation
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
